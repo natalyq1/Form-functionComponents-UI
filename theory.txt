@@ -1,0 +1,4 @@
+node -v
+npx create-react-app form-ui
+cd form-ui
+  npm start
