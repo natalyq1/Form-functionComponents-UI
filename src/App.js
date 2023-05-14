@@ -1,14 +1,20 @@
 
+import { Fragment } from 'react';
 import './App.css';
-import ClassComponent from './components/ClassComponent';
-import FuncComponent from './components/FuncComponent';
+import FormSignUp from './components/FormSignUp/FormSignUp';
+//import ClassComponent from './components/ClassComponent';
+//import FuncComponent from './components/FuncComponent';
 
 function App() {
   return (
-    <div>
-      <ClassComponent />
+    <Fragment>
+      {/* 
+       <ClassComponent />
       <FuncComponent />
-    </div>
+      */}
+      <h1>Formulario de registro</h1>
+      <FormSignUp />
+    </Fragment>
   );
 }
 
