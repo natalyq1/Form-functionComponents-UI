@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { FormControlLabel, FormGroup, Switch } from '@mui/material';
 
 function FormSignUp() {
+
+    const [name, setName] = useState('Romulo')
+
     return (
         <>
             <form>
@@ -13,6 +16,11 @@ function FormSignUp() {
                     variant="standard"
                     fullWidth
                     margin='normal'
+                    onChange={ (e) => {
+                        setName(e.target.value);
+                        
+                    }}
+                    value={name}
                 />
 
                 <TextField
@@ -35,6 +43,7 @@ function FormSignUp() {
                 <label htmlFor="">Promociones:</label>
                 <FormGroup >
                     <FormControlLabel 
+                    margin='normal'
                     control=
                     {
                     <Switch defaultChecked  />
@@ -43,6 +52,7 @@ function FormSignUp() {
                     />
                 
                 <FormControlLabel 
+                margin='normal'
                     control=
                     {
                     <Switch defaultChecked  />
@@ -50,7 +60,7 @@ function FormSignUp() {
                     label='Novedades'
                     />
 </FormGroup>
-                <Button variant='contained' color='success'>Registrarse</Button>
+                <Button variant='contained' color='success' margin='normal'>Registrarse</Button>
             </form>
         </>
     )
