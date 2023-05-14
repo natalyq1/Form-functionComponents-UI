@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { FormControlLabel, FormGroup, Switch } from '@mui/material';
 
 function FormSignUp() {
 
-    const [name, setName] = useState('Romulo')
+    const [name, setName] = useState('')
+    useEffect( () => {
+console.log('name cambio: ', name);
+    },[name])
 
     return (
         <>
@@ -17,6 +20,7 @@ function FormSignUp() {
                     fullWidth
                     margin='normal'
                     onChange={ (e) => {
+                        console.log(e.target.value);
                         setName(e.target.value);
                         
                     }}
