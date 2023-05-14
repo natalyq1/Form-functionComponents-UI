@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { FormControlLabel, FormGroup, Switch } from '@mui/material';
@@ -6,13 +6,17 @@ import { FormControlLabel, FormGroup, Switch } from '@mui/material';
 function FormSignUp() {
 
     const [name, setName] = useState('')
-    useEffect( () => {
-console.log('name cambio: ', name);
-    },[name])
+    const [lastName, setLastName] = useState('')
+    const [email, setEmail] = useState('')
+    const [prom, setProm] = useState(true)
+    const [nov, setNov] = useState(false)
 
     return (
         <>
-            <form>
+            <form onSubmit={ (e) => {
+                e.preventDefault()
+                console.log({name, lastName, email, prom, nov});
+            }}>
                 <TextField
                     id="name"
                     label="Nombre"
@@ -22,7 +26,6 @@ console.log('name cambio: ', name);
                     onChange={ (e) => {
                         console.log(e.target.value);
                         setName(e.target.value);
-                        
                     }}
                     value={name}
                 />
@@ -33,6 +36,10 @@ console.log('name cambio: ', name);
                     variant="standard"
                     fullWidth
                     margin='normal'
+                    onChange={ (e) => {
+                        setLastName(e.target.value);
+                    }}
+                    value={lastName}
                 />
 
                 <TextField
@@ -41,6 +48,10 @@ console.log('name cambio: ', name);
                     variant="standard"
                     fullWidth
                     margin='normal'
+                    onChange={ (e) => {
+                        setEmail(e.target.value);
+                    }}
+                    value={email}
                 />
 
 
@@ -50,21 +61,35 @@ console.log('name cambio: ', name);
                     margin='normal'
                     control=
                     {
-                    <Switch defaultChecked  />
+                    <Switch 
+                    checked= {prom} 
+                    onChange={ (e) => {
+                        setProm(e.target.checked);
+                    }}
+                    />
                     } 
                     label='Promociones'
                     />
                 
                 <FormControlLabel 
                 margin='normal'
-                    control=
-                    {
-                    <Switch defaultChecked  />
-                    } 
+                control=
+                {
+                <Switch 
+                checked= {nov} 
+                onChange={ (e) => {
+                    setNov(e.target.checked);
+                }}
+                />
+                } 
                     label='Novedades'
                     />
 </FormGroup>
-                <Button variant='contained' color='success' margin='normal'>Registrarse</Button>
+                <Button 
+                type='submit'
+                variant='contained' 
+                color='success'
+                margin='normal'>Registrarse</Button>
             </form>
         </>
     )
