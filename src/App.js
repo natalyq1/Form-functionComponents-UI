@@ -8,6 +8,10 @@ import { Typography } from '@mui/material';
 //import FuncComponent from './components/FuncComponent';
 
 function App() {
+
+  const handleSubmit = (valores) => {
+    console.log('app js: ', valores);
+  }
   return (
     <Fragment>
       {/* 
@@ -15,8 +19,15 @@ function App() {
       <FuncComponent />
       */}
       <Container component='section' maxWidth='sm'>
-      <Typography variant='h3' align='center' component='article'>Formulario de registro</Typography>
-      <FormSignUp />
+      <Typography 
+      variant='h3' 
+      align='center' 
+      component='article'
+      >Formulario de registro
+      </Typography>
+      <FormSignUp 
+      handleSubmit ={handleSubmit}
+      />
       </Container>
     </Fragment>
   );

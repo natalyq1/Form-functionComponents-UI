@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { FormControlLabel, FormGroup, Switch } from '@mui/material';
 
-function FormSignUp() {
+function FormSignUp({handleSubmit}) {
 
     const [name, setName] = useState('')
     const [lastName, setLastName] = useState('')
@@ -15,7 +15,7 @@ function FormSignUp() {
         <>
             <form onSubmit={ (e) => {
                 e.preventDefault()
-                console.log({name, lastName, email, prom, nov});
+                handleSubmit({name, lastName, email, prom, nov});
             }}>
                 <TextField
                     id="name"
